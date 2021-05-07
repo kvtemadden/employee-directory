@@ -46,35 +46,40 @@ class Directory extends Component {
   render = () => {
 
     return (
+      <div>
+        <SearchForm
+          name="search"
+          startSort={this.startSort}
+          label="Search"
+        />
+        <div class="middle">
+          {/* if it's not sorted, map accordingly */}
+          {!this.state.sorted ? this.state.employees.map(employee => (
 
-      <div class="middle">
-              {/* if it's not sorted, map accordingly */}
-              {!this.state.sorted ? this.state.employees.map(employee => (
 
+            < EmployeeCard
+              key={employee.id.value}
+              name={employee.name.first + " " + employee.name.last}
+              phone={employee.phone}
+              email={employee.email}
+              picture={employee.picture.large}
+            />
 
-                < EmployeeCard
-                  key={employee.id.value}
-                  name={employee.name.first + " " + employee.name.last}
-                  phone={employee.phone}
-                  email={employee.email}
-                  picture={employee.picture.large}
-                />
+          ))
+            // otherwise map the sorted employees
+            : this.state.empSort.map(employee => (
 
-              ))
-                // otherwise map the sorted employees
-                : this.state.empSort.map(employee => (
+              <EmployeeCard
+                key={employee.id.value}
+                name={employee.name.first + " " + employee.name.last}
+                phone={employee.phone}
+                email={employee.email}
+                picture={employee.picture.large}
+              />
 
-                  <EmployeeCard
-                    key={employee.id.value}
-                    name={employee.name.first + " " + employee.name.last}
-                    phone={employee.phone}
-                    email={employee.email}
-                    picture={employee.picture.large}
-                  />
-
-                ))};
+            ))};
       </div >
-
+      </div>
     )
 
   }

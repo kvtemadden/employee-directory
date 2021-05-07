@@ -33,14 +33,13 @@ function Search() {
   //   setSearch(event.target.value);
   // };
 
+
+  
   return (
     <div>
       <h1 className="text-center title-section">Employee Directory</h1>
       <Container style={{ minHeight: "100vh" }}>
-        <SearchForm
-          // handleInputChange={handleInputChange}
-          // results={search}
-        />
+        <p class="info">To begin searching, type in the name or email of the user you wish to find. The results will automatically filter for you.</p>
         <SearchResults />
       </Container>
     </div>
