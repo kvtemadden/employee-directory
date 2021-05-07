@@ -1,51 +1,47 @@
 import React, { useState, useEffect } from "react";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import Container from "../../components/Container";
 import SearchForm from "../../components/SearchForm";
 import SearchResults from "../../components/SearchResults";
-import Alert from "../../components/Alert";
+import EmployeeCard from "../../components/EmployeeCard";
 
 function Search() {
-  const [search, setSearch] = useState("");
-  const [title, setTitle] = useState("");
-  const [url, setUrl] = useState("");
-  const [error, setError] = useState("");
+  // const [search, setSearch] = useState("");
+  // const [title, setTitle] = useState("");
+  // const [url, setUrl] = useState("");
 
-  useEffect(() => {
-    if (!search) {
-      return;
-    }
+  // useEffect(() => {
+  //   if (!search) {
+  //     return;
+  //   }
 
-    API.searchTerms(search)
-      .then(res => {
-        if (res.data.length === 0) {
-          throw new Error("No results found.");
-        }
-        if (res.data.status === "error") {
-          throw new Error(res.data.message);
-        }
-        setTitle(res.data[1][0]);
-        setUrl(res.data[3][0]);
-      })
-      .catch(err => setError(err));
-  }, [search]);
+  //   API.searchTerms(search)
+  //     .then(res => {
+  //       if (res.data.length === 0) {
+  //         throw new Error("No results found.");
+  //       }
+  //       if (res.data.status === "error") {
+  //         throw new Error(res.data.message);
+  //       }
+  //       setTitle(res.data[1][0]);
+  //       setUrl(res.data[3][0]);
+  //     })
+  //     .catch(err => console.log(err));
+  // }, [search]);
 
-  const handleInputChange = event => {
-    setSearch(event.target.value);
-  };
+  // const handleInputChange = event => {
+  //   setSearch(event.target.value);
+  // };
 
   return (
     <div>
       <h1 className="text-center title-section">Employee Directory</h1>
       <Container style={{ minHeight: "100vh" }}>
-        <Alert type="danger" style={{ opacity: error ? 1 : 0, marginBottom: 10 }}>
-          {error}
-        </Alert>
         <SearchForm
-          handleInputChange={handleInputChange}
-          results={search}
+          // handleInputChange={handleInputChange}
+          // results={search}
         />
-        <SearchResults title={title} url={url} />
+        <SearchResults />
       </Container>
     </div>
   );
