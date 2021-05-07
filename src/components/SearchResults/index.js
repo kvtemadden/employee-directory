@@ -14,7 +14,7 @@ class Directory extends Component {
   // check that the component rendered at least once, and pull in our data
   // wait for the information to come back
   componentDidMount = () => {
-    fetch(`https://randomuser.me/api/?results=25&nat=us&inc=name,email,phone,id,picture`)
+    fetch(`https://randomuser.me/api/?results=25&nat=gb&inc=name,email,phone,id,picture,location`)
       .then(res => res.json())
       .then(json => {
         this.setState({ employees: json.results })
@@ -62,6 +62,7 @@ class Directory extends Component {
               name={employee.name.first + " " + employee.name.last}
               phone={employee.phone}
               email={employee.email}
+              location={employee.location.city}
               picture={employee.picture.large}
             />
 
@@ -74,6 +75,7 @@ class Directory extends Component {
                 name={employee.name.first + " " + employee.name.last}
                 phone={employee.phone}
                 email={employee.email}
+                location={employee.location.city}
                 picture={employee.picture.large}
               />
 
