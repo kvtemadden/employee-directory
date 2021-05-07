@@ -6,12 +6,12 @@ function SearchForm(props) {
 
 return (
   <div className="d-flex justify-content-center mx-auto">
-    <form>
+    <form className="form">
       <input
         placeholder="Search for your coworker here"
         name="search"
         type="text"
-        className="form form-control-lg search-font mx-auto"
+        className="fw form-control-lg search-font mx-auto"
         onChange={(event) => props.startSort(event)}
       />
     </form>
