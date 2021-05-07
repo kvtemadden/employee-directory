@@ -29,7 +29,8 @@ class Directory extends Component {
       return (
         sorted.name.first.toLowerCase().includes(search.toLowerCase()) ||
         sorted.name.last.toLowerCase().includes(search.toLowerCase()) ||
-        sorted.email.toLowerCase().includes(search.toLowerCase())
+        sorted.email.toLowerCase().includes(search.toLowerCase()) ||
+        sorted.location.city.toLowerCase().includes(search.toLowerCase())
       )
     })
     this.setState({ empSort })
