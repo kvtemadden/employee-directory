@@ -20,4 +20,13 @@ code {
   letter-spacing: -0.04rem;
   text-transform: uppercase;
   font-weight: 700;
+  box-shadow: 0 0 2px 1px #00000061;
+}
+
+.card {
+  display: inline-flex!important;
+}
+
+.middle {
+  text-align: center;
 }
