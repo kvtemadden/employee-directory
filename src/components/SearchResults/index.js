@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EmployeeCard from "../EmployeeCard";
 import SearchForm from "../SearchForm";
+import SortForm from "../SortForm";
 
 class Directory extends Component {
 
@@ -9,6 +10,7 @@ class Directory extends Component {
     empSort: [],
     search: "",
     sorted: false,
+    value: ""
   };
 
   // check that the component rendered at least once, and pull in our data
@@ -44,16 +46,63 @@ class Directory extends Component {
     });
   };
 
+  // handleChange = (event) => {
+
+  //   this.setState({
+  //     value: event.target.value
+  //   });
+
+  //   let { employees } = this.state;
+
+  //   if (this.value === "a-z") {
+  //     let empSort = employees.sort(function (a, b) {
+  //       if (a.first < b.first) { return -1; }
+  //       if (a.first > b.first) { return 1; }
+  //       return 0;
+  //     })
+  //     return (
+  //       this.setState({ empSort })
+  //     )
+  //   }
+  // };
+  
+  handleChange = (event) => {
+    this.setState({
+          value: event.target.value
+        });
+    let { employees } = this.state;
+
+    if (event.target.value === "a-z") {
+    const empSort = [...employees].sort(function (a, b) {
+              if (a.name.first < b.name.first) { return -1; }
+              if (a.name.first > b.name.first) { return 1; }
+              return 0;
+    });
+    this.setState({ empSort })
+    this.setState({ sorted: true });
+  }
+
+  if (event.target.value === "z-a") {
+    const empSort = [...employees].sort(function (a, b) {
+              if (a.name.first < b.name.first) { return 1; }
+              if (a.name.first > b.name.first) { return -1; }
+              return 0;
+    });
+    this.setState({ empSort })
+    this.setState({ sorted: true });
+  }
+
+    }
+  
+
+
   render = () => {
 
     return (
       <div>
-        <SearchForm
-          name="search"
-          startSort={this.startSort}
-          label="Search"
-        />
-        <div class="middle">
+        <SortForm value={this.state.value} onChange={this.handleChange} />
+        <SearchForm name="search" startSort={this.startSort} label="Search" />
+        <div className="middle">
           {/* if it's not sorted, map accordingly */}
           {!this.state.sorted ? this.state.employees.map(employee => (
 
