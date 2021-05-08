@@ -7,7 +7,7 @@ function Search() {
     <div>
       <h1 className="text-center title-section">Employee Directory</h1>
       <Container style={{ minHeight: "100vh" }}>
-        <p class="info">To begin searching, type in the name or email of the user you wish to find. The results will automatically filter for you.</p>
+        <p class="info">To begin searching, type in the name or email of the user you wish to find. The results will automatically filter for you. You can also order the results alphabetically by name.</p>
         <SearchResults />
       </Container>
     </div>
