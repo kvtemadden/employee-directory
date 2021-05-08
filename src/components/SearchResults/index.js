@@ -46,26 +46,7 @@ class Directory extends Component {
     });
   };
 
-  // handleChange = (event) => {
-
-  //   this.setState({
-  //     value: event.target.value
-  //   });
-
-  //   let { employees } = this.state;
-
-  //   if (this.value === "a-z") {
-  //     let empSort = employees.sort(function (a, b) {
-  //       if (a.first < b.first) { return -1; }
-  //       if (a.first > b.first) { return 1; }
-  //       return 0;
-  //     })
-  //     return (
-  //       this.setState({ empSort })
-  //     )
-  //   }
-  // };
-  
+  //Manages sort when the sort drop down field is chosen
   handleChange = (event) => {
     this.setState({
           value: event.target.value
